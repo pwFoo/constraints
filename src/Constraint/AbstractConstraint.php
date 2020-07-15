@@ -2,8 +2,6 @@
 
 namespace DealNews\Constraints\Constraint;
 
-use DealNews\Constraints\Constraint;
-
 abstract class AbstractConstraint {
     const DESCRIPTION = 'A valid value';
 

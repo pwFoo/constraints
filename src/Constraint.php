@@ -8,7 +8,6 @@ namespace DealNews\Constraints;
  * @copyright   1997-Present DealNews.com, Inc
  * @package     Constraints
  */
-
 class Constraint {
 
     /**
@@ -57,7 +56,7 @@ class Constraint {
         'min'            => 0,
         'max'            => 0,
         'allowed_values' => [],
-        'pattern'        => ''
+        'pattern'        => '',
     ];
 
     /**

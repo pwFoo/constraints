@@ -31,7 +31,7 @@ class Range extends AbstractConstraint implements ConstraintInterface {
         '>',
         '>=',
         '<=',
-        'between'
+        'between',
     ];
 
     public static function filter($value, array $constraint, Constraint $dc) {
