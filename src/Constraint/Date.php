@@ -15,12 +15,11 @@ use DealNews\Constraints\Interfaces\ConstraintInterface;
  * @package     Constraints
  */
 class Date extends AbstractConstraint implements ConstraintInterface {
-
-    const DESCRIPTION = "A value describing an absolute or relative date";
+    const DESCRIPTION = 'A value describing an absolute or relative date';
 
     const EXAMPLE = "'2018-07-21', 'Sat, 21 Jul 2018', 'July 21, 2018', 'today', '-2 days'";
 
-    const PRIMITIVE = "string";
+    const PRIMITIVE = 'string';
 
     /**
      * Filter function for this abstract type
@@ -38,8 +37,9 @@ class Date extends AbstractConstraint implements ConstraintInterface {
         if ($ts === false || $ts <= 0) {
             $value = null;
         } else {
-            $value = date("Y-m-d", $ts);
+            $value = date('Y-m-d', $ts);
         }
+
         return $value;
     }
 }

@@ -15,12 +15,11 @@ use DealNews\Constraints\Interfaces\ConstraintInterface;
  * @package     Constraints
  */
 class Currency extends AbstractConstraint implements ConstraintInterface {
+    const DESCRIPTION = 'A value describing a US dollar amount';
 
-    const DESCRIPTION = "A value describing a US dollar amount";
+    const EXAMPLE = '19.99, $50, $49.99, 99 cents';
 
-    const EXAMPLE = "19.99, $50, $49.99, 99 cents";
-
-    const PRIMITIVE = "string";
+    const PRIMITIVE = 'string';
 
     /**
      * Filter function for this abstract type
@@ -35,15 +34,16 @@ class Currency extends AbstractConstraint implements ConstraintInterface {
      */
     public static function filter($value, array $constraint, Constraint $dc) {
         if (preg_match('/^(\d{1,2}) cents$/', $value, $match)) {
-            $value = "0.".$match[1];
+            $value = '0.' . $match[1];
         } else {
             $value = preg_replace('/^\$/', '', $value);
-            $value = str_replace(",", "", $value);
+            $value = str_replace(',', '', $value);
             $value = filter_var($value, FILTER_VALIDATE_FLOAT, FILTER_NULL_ON_FAILURE);
             if ($value != null) {
-                $value = number_format($value, 2, ".", "");
+                $value = number_format($value, 2, '.', '');
             }
         }
+
         return $value;
     }
 }

@@ -13,6 +13,5 @@ namespace DealNews\Constraints\Interfaces;
 use DealNews\Constraints\Constraint;
 
 interface ConstraintInterface {
-
     public static function filter($value, array $constraint, Constraint $dc);
 }

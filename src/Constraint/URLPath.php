@@ -15,12 +15,11 @@ use DealNews\Constraints\Interfaces\ConstraintInterface;
  * @package     Constraints
  */
 class URLPath extends AbstractConstraint implements ConstraintInterface {
-
     const DESCRIPTION = "A valid URL path which begins with '/'";
 
-    const EXAMPLE = "/categories/laptops/";
+    const EXAMPLE = '/categories/laptops/';
 
-    const PRIMITIVE = "string";
+    const PRIMITIVE = 'string';
 
     /**
      * Filter function for this abstract type
@@ -37,11 +36,12 @@ class URLPath extends AbstractConstraint implements ConstraintInterface {
         $value = trim($value);
         if (
             empty($value) ||
-            $value[0] != "/" ||
-            !filter_var("http://www.example.com".$value, FILTER_VALIDATE_URL)
+            $value[0] != '/' ||
+            !filter_var('http://www.example.com' . $value, FILTER_VALIDATE_URL)
         ) {
             $value = null;
         }
+
         return $value;
     }
 }
